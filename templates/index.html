@@ -1,0 +1,117 @@
+<html lang="en">
+<head>
+  <title>Paraphrase detection</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
+  <!-- <link rel="stylesheet" href="styles.css"> -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    h1{
+    font-size: 64px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: #d5e9d5;
+}
+label{
+    font-size: 32px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: #d5e9d5; /* Green */;
+    
+}
+h2{
+    font-size: 40px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: #d5e9d5;
+}
+body{
+    background-color: #320032;
+}
+.container{
+    text-align: center;
+    padding: 60px;
+    /* background-color: aqua; */
+    /*background-image: url('https://img.freepik.com/free-vector/creative-gradient-futuristic-background_23-2149136590.jpg?w=2000 ' );*/
+    height: 100%;
+}
+.form{
+    display: flex;
+    flex-direction: column;
+
+    gap: 30px;
+}
+.formHeading{
+    display: flex;
+    flex-direction: column;
+    
+    gap: 40px;
+}
+.sentence{
+    width: 200px;
+    height: 24px;
+    background-color: #d5e9d5; /* Green */
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+.col{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    /* gap: 16px; */
+}
+
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.button:hover {
+    background-color: #d5e9d5;
+    color: #4CAF50;
+    border: 2px #4CAF50;
+}
+
+
+
+
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <h1 class="heading">Paraphrase Detection</h1>
+  <br><br>
+  <form class="form" action="/submit" method="post" >
+    <div class="formHeading">
+      <label class="control" for="pwd">Enter your sentences: </label>
+      <div class="col">          
+        <input type="text" class="sentence" placeholder="Sentence 1"  name="sentence_1" id="s1"><br>
+        <input type="text" class="sentence" placeholder="Sentence 2"  name="sentence_2" id="s2">
+      </div>
+    </div>
+
+    <div class="form-group">        
+      <div class="col">
+        <button type="submit" class="button">Submit</button>
+      </div>
+    </div>
+  </form>
+
+	
+	<h2><i> {{prediction}} </i></h2>
+
+</div>
+
+</body>
+</html>
