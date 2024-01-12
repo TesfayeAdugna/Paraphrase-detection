@@ -8,7 +8,7 @@ from tensorflow.keras import backend as K
 app = Flask(__name__)
 
 # Load Siamese LSTM model
-model_path = "Model\weights.04-0.23.h5"  # Replace with the actual path to your model file
+model_path = "Model\weights.03-0.188.h5"  # Replace with the actual path to your model file
 
 def exponent_neg_manhattan_distance(left, right):
     return K.exp(-K.sum(K.abs(left - right), axis=1, keepdims=True))
