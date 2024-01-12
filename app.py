@@ -57,7 +57,8 @@ def exponent_neg_manhattan_distance(left, right):
     return K.exp(-K.sum(K.abs(left - right), axis=1, keepdims=True))
 
 malstm = load_model(model_path, custom_objects={'exponent_neg_manhattan_distance': exponent_neg_manhattan_distance})
-maxlen = 60  # Ensure this value matches the value used during training
+maxlen = 60  # 
+threshold = 0.69
 
 def preprocess_text(text):
     tokenizer = Tokenizer(num_words=5000, filters='!"#$%&()*+,-./:;<=>?@[\\]^_`{|}~\t\n', lower=True, split=' ')
@@ -66,11 +67,14 @@ def preprocess_text(text):
     padded_sequences = pad_sequences(sequences, maxlen=maxlen)
     return padded_sequences
 
+outtolabel = {0 : "No, The submitted sentences are not paraphrase", 
+        1 : "Yes, The submitted sentences are paraphrase"}
+
 def predict(encod1, encod2):
     encod1 = preprocess_text([encod1])
     encod2 = preprocess_text([encod2])
     prediction = malstm.predict([encod1, encod2])
-    return int(prediction[0][0] > 0.5)  # Adjust the threshold as needed
+    return outtolabel[int(prediction[0][0] > 0.5)]  # Adjust the threshold as needed
 
 # routes
 @app.route("/", methods=['GET', 'POST'])
